@@ -15,11 +15,11 @@ const run = () => {
         min++;
         sec = 0
     }
-
 }
 
 const start = () => {
     timer = setInterval(run,10) 
+    console.log(timer) // id veriyor
 }
 
 playPauseButton.addEventListener("click", () => {
@@ -31,8 +31,15 @@ playPauseButton.addEventListener("click", () => {
 })
 
 stopButton.addEventListener("click", ()=> {
-    clearInterval(timer);
-    document.getElementById("timekeeper").innerHTML = "00 : 00 : 00"
+    if (playPauseButton.className == "fas fa-play") {
+        clearInterval(timer);
+        document.getElementById("timekeeper").innerHTML = "00:00:00"
+    }
+    else {
+        clearInterval(timer);
+        document.getElementById("timekeeper").innerHTML = "00:00:00"
+        playPauseButton.className = "fas fa-play"
+    }
 })
 
 
